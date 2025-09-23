@@ -1,29 +1,21 @@
-# Post Test PBO 2
+# Post Test PBO 3
 
 Narendra Augusta Srianandha | 2409116010 | SI A'24
 
 ## 📌 Deskripsi Program
 
-**Anime Management Project** adalah aplikasi Java CLI sederhana untuk mengelola data anime.
-Program ini menggunakan konsep **Object-Oriented Programming (OOP)** dengan implementasi **inheritance**, **polymorphism**, dan **encapsulation**.
-Pengguna dapat menambahkan anime dengan format **Movie** maupun **Series**, lalu menampilkannya dalam daftar.
+**AnimeStream.ID** adalah aplikasi Java CLI sederhana untuk mengelola data anime. Program ini menggunakan konsep **Object-Oriented Programming (OOP)** dengan implementasi **inheritance**, **polymorphism**, dan **encapsulation**. Pengguna dapat menambahkan anime dengan format **Movie** maupun **Series**, lalu menampilkannya dalam daftar.
 
 ---
 
 ## 🗂️ Struktur Project
 
-```
-├── Main.java          # Entry point program
-├── Anime.java         # Class induk (Model) berisi atribut umum anime
-├── MovieAnime.java    # Subclass untuk anime berformat Movie
-├── SeriesAnime.java   # Subclass untuk anime berformat Series
-└── AnimeService.java  # Service class untuk mengelola daftar anime
-```
+<img width="405" height="271" alt="image" src="https://github.com/user-attachments/assets/33ef7a58-aa45-45b7-b41d-0fa9be8fb7c6" />
 
 ### Penjelasan Singkat
 
 * **Main.java** → Menjalankan program, membuat objek, dan menampilkan output.
-* **Anime.java** → Model utama, menyimpan atribut `judul`, `genre`, `status`.
+* **Anime.java** → Model utama, menyimpan atribut `judul`, `genre`, `status`, Superclass dari para Subclass.
 * **MovieAnime.java** → Subclass dari `Anime`, menambahkan atribut `durasi`.
 * **SeriesAnime.java** → Subclass dari `Anime`, menambahkan atribut `episode`.
 * **AnimeService.java** → Menyimpan daftar anime dengan `ArrayList` dan menyediakan method untuk menambahkan & menampilkan data.
@@ -32,53 +24,63 @@ Pengguna dapat menambahkan anime dengan format **Movie** maupun **Series**, lalu
 
 ## 🔄 Alur Program
 
-1. **Menambahkan Anime (Movie & Series)**
+1. **Menu Utama**  
+   Setelah program dijalankan, pengguna akan melihat menu utama dengan pilihan: Tambah, Lihat, Ubah, Hapus, Cari, dan Keluar.  
+   <img width="319" height="186" alt="Screenshot 2025-09-22 231732" src="https://github.com/user-attachments/assets/b3914d84-8b09-419b-ad75-285f798e16ec" />
 
-   * Objek `MovieAnime` dan `SeriesAnime` dibuat di `Main.java`.
-   * Data dimasukkan ke dalam `AnimeService`.
-
-   ✅ Contoh kode di `Main.java`:
-
-   ```java
-   AnimeService service = new AnimeService();
-
-   service.addAnime(new MovieAnime("One Piece Film: Red", "Action", 2022, 115));
-   service.addAnime(new SeriesAnime("Attack on Titan", "Action/Fantasy", 2013, 87));
-   ```
 
 ---
 
-2. **Menyimpan Data**
+2. **Tambah Anime**  
+   - Pengguna memasukkan jenis (subclass), judul, genre, dan status anime  
+   - Program melakukan **validasi input** agar tidak kosong dan sesuai format  
+   - Data yang valid akan disimpan ke dalam `ArrayList`  
+   - Output:  
+   <img width="535" height="368" alt="Screenshot 2025-09-22 231752" src="https://github.com/user-attachments/assets/626032a4-eed7-48be-a920-3a3163d14146" />
 
-   * Data anime tersimpan dalam `ArrayList<Anime>` di `AnimeService`.
-   * Memanfaatkan **polymorphism**, sehingga `MovieAnime` dan `SeriesAnime` bisa disimpan dalam satu list karena keduanya adalah turunan dari `Anime`.
 
 ---
 
-3. **Menampilkan Daftar Anime**
+3. **Lihat Daftar Anime**  
+   - Menampilkan daftar anime yang sudah tersimpan dengan nomor urut  
+   - Jika daftar kosong, muncul pesan "Belum ada anime dalam daftar"  
+   <img width="1047" height="365" alt="Screenshot 2025-09-22 231919" src="https://github.com/user-attachments/assets/12eb5c38-4676-45bd-8c08-5207e3e05b9e" />
 
-   * Method `printAllAnime()` dipanggil untuk menampilkan seluruh data.
-   * Masing-masing subclass (`MovieAnime`, `SeriesAnime`) melakukan **override** method `toString()` untuk menampilkan data sesuai formatnya.
-
-   ✅ Output:
-
-   ```
-   === Daftar Anime ===
-    1. Kimi no Nawa | Genre: Drama | Status: Completed | Durasi: 120 menit (Movie)
-    2. Evangelion | Genre: Thriller | Status: Completed | Episode: 12 (Series)
-   ```
+   <img width="418" height="237" alt="image" src="https://github.com/user-attachments/assets/4a56bebb-0d93-476d-9ea1-4d9a77e34e9c" />
 
 ---
 
-4. **Keluar Program**
-
-   * Program berhenti setelah menampilkan output.
+4. **Ubah Data Anime**  
+   - Pengguna memilih nomor anime yang ingin diubah  
+   - Bisa mengubah judul, genre, atau status (boleh sebagian atau semua)  
+   - Output:  
+   <img width="1038" height="285" alt="Screenshot 2025-09-22 232001" src="https://github.com/user-attachments/assets/cf639490-4a56-40dc-8f3c-ff900eeede19" />
+ 
+   <img width="1034" height="373" alt="Screenshot 2025-09-22 232013" src="https://github.com/user-attachments/assets/4578e5bd-6044-48ea-8918-a8c4788f3aa4" />
 
 ---
 
-## 📖 Contoh Output Lengkap
+5. **Hapus Data Anime**  
+   - Pengguna memilih nomor anime yang ingin dihapus  
+   - Data langsung dihapus dari daftar  
+   - Output:  
+   <img width="1031" height="410" alt="Screenshot 2025-09-22 232026" src="https://github.com/user-attachments/assets/66245958-d43a-4fa6-b0b4-8619ff83fe88" />
+  
+   <img width="1029" height="171" alt="Screenshot 2025-09-22 232035" src="https://github.com/user-attachments/assets/3d3b2a48-2b37-4a26-9913-c343a4b7172b" />
+   
+---
 
+6. **Cari Anime**  
+   - Pengguna memasukkan kata kunci  
+   - Program akan menampilkan daftar anime yang cocok dengan pencarian judul  
+   - Output:  
+   <img width="877" height="261" alt="Screenshot 2025-09-22 232046" src="https://github.com/user-attachments/assets/3774fc18-2676-4b77-b0f8-27abd7f677e6" />
+   
+---
 
+7. **Keluar Program**  
+   - Program berhenti dan menampilkan pesan perpisahan  
+   <img width="773" height="227" alt="Screenshot 2025-09-22 232104" src="https://github.com/user-attachments/assets/6fdb95af-41b2-403b-9a30-a7c3cbd8c129" />
 
 ---
 
@@ -91,4 +93,4 @@ Pengguna dapat menambahkan anime dengan format **Movie** maupun **Series**, lalu
 
 ---
 
-👨‍💻 Dibuat untuk memenuhi tugas Post Test PBO 2.
+👨‍💻 Dibuat untuk memenuhi tugas Post Test PBO 3.
